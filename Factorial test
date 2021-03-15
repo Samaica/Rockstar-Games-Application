@@ -1,0 +1,34 @@
+#include<iostream>
+using namespace std;
+
+unsigned long long int fact(long int n) //this makes it go up to very big numbers (positive)
+	{
+		if (n == 1 || n == 0) //base cases
+ 			return 1;
+ 		
+		else
+ 			return (n*fact(n-1)); //recursive call
+	}
+
+int main( ){
+	
+	bool negative = true;
+	
+	while(negative){
+	int x;
+	cout<<"Please enter a postive number."<<endl;
+	cin>>x;
+	
+	
+	if(x < 0){
+	cout<<"You entered an incorrect number."<<endl; 
+	negative = false; //this used to be true but changed to make it loop
+	}//if
+	
+	
+	else{
+	cout <<"The factorial of that number is: "<<fact(x) << endl;
+	negative = true;
+	}//else 
+	}//while loop
+}
