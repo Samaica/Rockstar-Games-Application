@@ -1,0 +1,48 @@
+#include <iostream> 
+#include <stdexcept>
+
+unsigned long long int Collatz(unsigned long long int x){
+	
+	std::cout<<"f("<<x<<") = ";
+	if(x == 1){
+		std::cout<<"f(2) = ";
+		return x; //base case
+	}
+		
+	else if(x % 2 == 0){   //x even
+		std::cout<<"f("<<x<<"/x) = "<<(x/2)<<std::endl;
+		return (Collatz(x/2));   //recursive call
+	}
+		
+	else{    //x odd
+		std::cout<<"f(3 x "<<x<<" + 1) = "<<(3*x+1)<<std::endl;
+		return (Collatz(3*x+1));   //recursive call
+	}
+	
+	return 0;
+}
+
+int main() {
+	
+	bool positive = true;
+	unsigned long long int a;
+	
+	do{
+	std::cout<<"Please enter a positive integer"<<std::endl;
+	std::cin>>a;
+	
+	if(a < 0){
+		std::cout<<"ERROR: Negative number entered."<<std::endl;
+		positive = false;
+		return 0;
+	}//if 
+	
+	else{
+	std::cout<<Collatz(a)<<std::endl;
+	std::cout<<std::endl;
+	}//else
+	} while(positive); /*do loop while a = positive*/
+	
+	return 0;
+}//main
+	
